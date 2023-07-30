@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
@@ -12,6 +16,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
+    box-sizing: border-box;
 }
 
 a {
@@ -35,7 +40,10 @@ a:hover {
 body {
     margin: 0;
     display: flex;
-    place-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /* place-items: start; */
     min-width: 320px;
     min-height: 100vh;
 }
@@ -72,7 +80,7 @@ button:focus-visible {
     width: 100%;
     /* max-width: 390px; */
     margin: 0 auto;
-    text-align: center;
+    height: 100vh;
 }
 
 @media (prefers-color-scheme: light) {
