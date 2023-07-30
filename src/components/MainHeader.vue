@@ -1,6 +1,6 @@
 <template>
     <div
-        class="flex justify-between items-center fixed top-0 h-[60px] w-full px-4 bg-portal-coffee border-b-[1px] border-portal-black"
+        class="flex justify-between items-center fixed top-0 h-[60px] w-full px-4 bg-portal-coffee border-b-[1px] border-portal-black z-10"
     >
         <div class="flex">{{ appTitle }}</div>
         <div
