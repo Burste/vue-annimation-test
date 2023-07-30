@@ -89,15 +89,21 @@ const child_bg = {
     9: '#ffedb4',
 };
 
+const recursivelyFindChild = (item, key) => {
+    // 當前先找找看是否匹配，沒有再往下找
+    if (item.key === key) {
+        return true;
+    } else if (item.children && item.children.length) {
+        return item.children.some((child) => recursivelyFindChild(child, key));
+    } else {
+        return false;
+    }
+};
+
 // 展開子項目需要判斷是否有子項目，沒有子項目則但要收合
 const isShowChild = (item) => {
     const res = computed(() => {
-        return (
-            (item.children &&
-                item.children.length &&
-                item.children.find((i) => i.key === props.activeChildKey)) ||
-            props.activeChildKey === item.key
-        );
+        return recursivelyFindChild(item, props.activeChildKey);
     });
     return res.value;
 };

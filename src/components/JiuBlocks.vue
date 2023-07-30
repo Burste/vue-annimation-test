@@ -121,11 +121,14 @@ const isBlockBling = (idx) => {
     0% {
         transform: translateX(0) translateZ(1px);
     }
+    90% {
+        transform: translateX(210%) translateZ(1px);
+    }
     100% {
-        transform: translateX(100%) translateZ(1px);
+        transform: translateX(210%) translateZ(1px);
     }
 }
 .moving-right {
-    animation: left-to-right 1s linear infinite;
+    animation: left-to-right 1.2s ease-out infinite;
 }
 </style>

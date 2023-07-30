@@ -2,7 +2,7 @@
     <div
         class="flex justify-between items-center fixed top-0 h-[60px] w-full px-4 bg-portal-coffee border-b-[1px] border-portal-black"
     >
-        <div class="flex">LOGO</div>
+        <div class="flex">{{ appTitle }}</div>
         <div
             class="flex items-center justify-center w-6 h-6 text-sm border-[1px] border-white text-white rounded"
             @click="toggleSidebar"
@@ -36,12 +36,10 @@
 </template>
 
 <script setup>
-// import { storeToRefs } from 'pinia';
-import ImgMenu from '@/assets/icon/ic-menu.svg';
 import { usePlatformState } from '@/store';
 
+const appTitle = import.meta.env.VITE_APP_TITLE;
 const storePlatform = usePlatformState();
-// const { toggleSidebar } = storeToRefs(storePlatform);
 const { toggleSidebar } = storePlatform;
 </script>
 <style lang="scss" scoped></style>

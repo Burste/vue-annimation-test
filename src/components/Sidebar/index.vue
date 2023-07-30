@@ -18,7 +18,7 @@
                 <SidebarItem
                     :idx="0"
                     :item="item"
-                    :activeChildKey="activeChildKey"
+                    :activeChildKey="activeMenuItem"
                     :onItemClick="onSidebarItemClick"
                 />
             </div>
@@ -37,29 +37,25 @@ import SidebarItem from './SidebarItem.vue';
 
 const target = ref(null);
 
-const activeChildKey = ref(null);
 const storePlatform = usePlatformState();
-const { sidebarExpandStatus } = storeToRefs(storePlatform);
-const { toggleSidebar } = storePlatform;
+const { activeMenuItem, sidebarExpandStatus } = storeToRefs(storePlatform);
+const { toggleSidebar, setActiveMenuItem } = storePlatform;
 
 const onSidebarItemClick = (item, parent = null) => {
-    console.log(
-        'onSidebarItemClick',
-        item,
-        parent,
-        'act',
-        activeChildKey.value
-    );
+    let nextActiveKey = null;
     if (item.children && item.children.length) {
-        if (activeChildKey.value === item.key) {
-            activeChildKey.value = parent ? parent.key : null;
+        if (activeMenuItem.value === item.key) {
+            nextActiveKey = parent ? parent.key : null;
         } else {
-            activeChildKey.value = item.key;
+            console.log('C:another key');
+            nextActiveKey = item.key;
         }
     } else {
         // activeChildKey.value = parent ? parent.key : item.key;
-        console.log('SET PATJ');
+        nextActiveKey = item.key;
+        console.log('SET PATH');
     }
+    setActiveMenuItem(nextActiveKey);
 };
 
 onClickOutside(target, () => {
