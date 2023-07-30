@@ -19,6 +19,12 @@ const blingBlock = reactive([3, 5, 9]);
 .normal-jiugongge {
     &__container {
         position: relative;
+        overflow: hidden;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
     }
 }
 </style>

@@ -62,6 +62,7 @@ const isBlockBling = (idx) => {
 }
 .jiu-block {
     &__container {
+        width: 100%;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(3, 1fr);
@@ -73,6 +74,7 @@ const isBlockBling = (idx) => {
         font-size: 16px;
         width: 100%;
         border: black solid 2px;
+        box-sizing: border-box;
     }
     &__bg {
         position: absolute;
@@ -95,7 +97,7 @@ const isBlockBling = (idx) => {
         @include mixin.size(100%);
         display: flex;
         align-items: center;
-        z-index: 10;
+        z-index: 1;
         justify-content: center;
         // top: 50%;
         // left: 50%;
@@ -117,10 +119,10 @@ const isBlockBling = (idx) => {
 
 @keyframes left-to-right {
     0% {
-        transform: translateX(0) translateZ(100px);
+        transform: translateX(0) translateZ(1px);
     }
     100% {
-        transform: translateX(100%) translateZ(100px);
+        transform: translateX(100%) translateZ(1px);
     }
 }
 .moving-right {

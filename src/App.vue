@@ -1,20 +1,16 @@
 <script setup>
+import MainHeader from './components/MainHeader.vue';
 import NormalJiugongge from './components/NormalJiugongge.vue';
+import Sidebar from './components/Sidebar/index.vue';
+import MainContainer from './layouts/mainContainer.vue';
 </script>
 
 <template>
-    <div class="main-container">
+    <MainHeader />
+    <Sidebar />
+    <MainContainer>
         <NormalJiugongge />
-    </div>
+    </MainContainer>
 </template>
 
-<style lang="scss" scoped>
-.main-container {
-    padding: 0 20px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-}
-</style>
+<style lang="scss" scoped></style>
