@@ -3,12 +3,11 @@ import './style.scss';
 import App from './App.vue';
 import { createPinia } from 'pinia';
 import routes from '@/routes/config.js';
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 
 const pinia = createPinia();
 const router = createRouter({
-    mode: 'history',
-    history: createWebHistory(),
+    history: createWebHashHistory(),
     routes,
 });
 const app = createApp(App);
