@@ -7,6 +7,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 const pinia = createPinia();
 const router = createRouter({
+    mode: 'history',
     history: createWebHistory(),
     routes,
 });

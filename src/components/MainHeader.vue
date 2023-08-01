@@ -2,7 +2,12 @@
     <div
         class="flex justify-between items-center fixed top-0 h-[60px] w-full px-4 bg-portal-coffee border-b-[1px] border-portal-black z-10"
     >
-        <div class="flex text-white font-bold">{{ appTitle }}</div>
+        <div
+            class="flex items-center justify-center text-white font-bold cursor-pointer h-full"
+            @click="navigateToHome"
+        >
+            {{ appTitle }}
+        </div>
         <div
             class="flex items-center justify-center w-6 h-6 text-sm border-[1px] border-white text-white rounded"
             @click="toggleSidebar"
@@ -37,7 +42,13 @@
 
 <script setup>
 import { usePlatformState } from '@/store';
+import { useRouter } from 'vue-router';
 
+const navigateToHome = () => {
+    router.push('/');
+};
+
+const router = useRouter();
 const appTitle = import.meta.env.VITE_APP_TITLE;
 const storePlatform = usePlatformState();
 const { toggleSidebar } = storePlatform;
