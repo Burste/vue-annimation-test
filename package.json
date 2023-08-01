@@ -1,7 +1,7 @@
 {
     "name": "vue-animation-test",
     "private": true,
-    "version": "1.0.2",
+    "version": "1.0..",
     "type": "module",
     "scripts": {
         "dev": "vite",
