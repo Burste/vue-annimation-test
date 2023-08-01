@@ -1,9 +1,10 @@
 <template>
-    <div :class="`jiu-block__container ${className}`">
+    <div class="flex items-center justify-center">{{ title }}</div>
+    <div :class="['jiu-block__container', className]">
         <div
             :class="'jiu-block__item'"
             v-for="(block, idx) in blocks"
-            :key="block"
+            :key="`block-${idx}`"
         >
             <div
                 :class="[
@@ -13,7 +14,11 @@
                     },
                 ]"
             ></div>
-            <div v-if="isBall(idx)" :class="`jiu-block__ball ${ballClassName}`">
+            <div
+                v-if="isBall(idx)"
+                :class="`jiu-block__ball ${ballClassName}`"
+                ref="refBall"
+            >
                 <span>{{ block }}</span>
             </div>
         </div>
@@ -21,7 +26,13 @@
 </template>
 
 <script setup>
+import { gsap } from 'gsap';
+import { ref, onMounted } from 'vue';
 const props = defineProps({
+    title: {
+        type: String,
+        default: '',
+    },
     className: {
         type: String,
         default: '',
@@ -42,13 +53,30 @@ const props = defineProps({
         type: String,
         default: '',
     },
+    aniType: {
+        type: String,
+        default: 'css',
+    },
 });
 
+const refBall = ref(null);
 const blocks = Array.from({ length: 9 }, (_, i) => i + 1);
 const isBall = (idx) => props.ballPos.includes(idx + 1);
 const isBlockBling = (idx) => {
     return props.blingBlock.includes(idx + 1);
 };
+
+onMounted(() => {
+    if (props.aniType === 'gsap') {
+        const rect = refBall.value[0].getBoundingClientRect();
+        gsap.to(refBall.value, {
+            x: 2 * Number(rect.width).toFixed(2),
+            duration: 1.2,
+            repeat: -1,
+            ease: 'Power1.easeOut',
+        });
+    }
+});
 </script>
 
 <style lang="scss" scoped>
@@ -93,12 +121,14 @@ const isBlockBling = (idx) => {
         }
     }
     &__ball {
-        position: absolute;
         @include mixin.size(100%);
+        position: absolute;
         display: flex;
         align-items: center;
         z-index: 1;
         justify-content: center;
+        box-sizing: content-box;
+        border: solid 2px transparent;
         // top: 50%;
         // left: 50%;
         // transform: translate(-50%, -50%);
@@ -121,11 +151,8 @@ const isBlockBling = (idx) => {
     0% {
         transform: translateX(0) translateZ(1px);
     }
-    90% {
-        transform: translateX(210%) translateZ(1px);
-    }
     100% {
-        transform: translateX(210%) translateZ(1px);
+        transform: translateX(calc(200%)) translateZ(1px);
     }
 }
 .moving-right {

@@ -1,9 +1,11 @@
 <template>
     <div class="flex items-center justify-center">
-        <!-- <normal-jiugongge /> -->
+        <normal-jiugongge />
     </div>
 </template>
 
-<script setup></script>
+<script setup>
+import NormalJiugongge from '@/components/NormalJiugongge.vue';
+</script>
 
 <style lang="scss" scoped></style>
