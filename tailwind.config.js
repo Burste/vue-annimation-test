@@ -6,6 +6,7 @@ export default {
     theme: {
         extend: {
             colors: {
+                'portal-light-coffee': '#8f7052',
                 'portal-coffee': '#211a1e',
                 'portal-black': '#1a1a1a',
             },

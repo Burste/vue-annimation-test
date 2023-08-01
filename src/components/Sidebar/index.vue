@@ -3,7 +3,7 @@
         <div
             ref="target"
             :class="[
-                'transition-all duration-900 z-10 py-10 flex flex-col items-center justify-start gap-2 fixed top-0 -left-[240px] h-screen w-full bg-portal-coffee max-w-[240px] overflow-auto',
+                'transition-all duration-900 z-10 py-10 flex flex-col items-center justify-start gap-2 fixed top-0 -left-[240px] h-screen w-full bg-portal-light-coffee max-w-[240px] overflow-auto',
                 {
                     'ml-[240px]': sidebarExpandStatus,
                 },

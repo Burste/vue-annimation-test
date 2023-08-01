@@ -9,7 +9,7 @@
             {{ appTitle }}
         </div>
         <div
-            class="flex items-center justify-center w-6 h-6 text-sm border-[1px] border-white text-white rounded"
+            class="flex items-center justify-center w-6 h-6 text-sm border-[1px] border-white text-white rounded cursor-pointer"
             @click="toggleSidebar"
         >
             <svg
