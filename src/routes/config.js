@@ -1,13 +1,13 @@
 const routeConfig = [
     {
-        name: 'Home',
-        path: '/',
-        component: () => import('@/pages/Home.vue'),
-    },
-    {
         name: 'Jiu-css',
         path: '/jiu-css',
         component: () => import('@/pages/JiuCss.vue'),
+    },
+    {
+        name: 'Jiu-gsap',
+        path: '/jiu-gsap',
+        component: () => import('@/pages/JiuGsap.vue'),
     },
 ];
 

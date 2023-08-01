@@ -6,12 +6,6 @@
             :ballPos="ballPos"
             :ballClassName="'moving-right'"
         />
-        <JiuBlocks
-            title="Made by GSAP"
-            :blingBlock="blingBlock"
-            :ballPos="ballPos"
-            aniType="gsap"
-        />
     </div>
 </template>
 

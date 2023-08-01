@@ -1,10 +1,12 @@
 <template>
     <div
-        :class="`h-10 relative flex items-center justify-center select-none`"
+        :class="'h-10 relative flex items-center justify-center select-none'"
         :style="`background: ${child_bg[idx]}`"
         @click.stop="() => onItemClick(item, parentItem)"
     >
-        {{ item.text }}
+        <span :class="[{ 'text-sky-950': item.key === activeChildKey }]">{{
+            item.text
+        }}</span>
         <div
             v-show="item?.children?.length && idx !== 0"
             :class="[
@@ -69,7 +71,7 @@ const props = defineProps({
     },
     activeChildKey: {
         type: String,
-        default: () => {},
+        default: '',
     },
     onItemClick: {
         type: Function,

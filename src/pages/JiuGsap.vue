@@ -1,9 +1,11 @@
 <template>
     <div class="flex items-center justify-center">
-        <!-- <normal-jiugongge /> -->
+        <gsap-jiugongge />
     </div>
 </template>
 
-<script setup></script>
+<script setup>
+import GsapJiugongge from '@/components/GsapJiugongge.vue';
+</script>
 
 <style lang="scss" scoped></style>

@@ -1,25 +1,29 @@
 <template>
-    <div class="flex items-center justify-center">{{ title }}</div>
-    <div :class="['jiu-block__container', className]">
-        <div
-            :class="'jiu-block__item'"
-            v-for="(block, idx) in blocks"
-            :key="`block-${idx}`"
-        >
+    <div class="flex flex-col gap-4 w-full">
+        <div class="flex items-center justify-center text-white">
+            {{ title }}
+        </div>
+        <div :class="['jiu-block__container', className]">
             <div
-                :class="[
-                    'jiu-block__bg',
-                    {
-                        'jiu-block__bg--bling': isBlockBling(idx),
-                    },
-                ]"
-            ></div>
-            <div
-                v-if="isBall(idx)"
-                :class="`jiu-block__ball ${ballClassName}`"
-                ref="refBall"
+                :class="'jiu-block__item'"
+                v-for="(block, idx) in blocks"
+                :key="`block-${idx}`"
             >
-                <span>{{ block }}</span>
+                <div
+                    :class="[
+                        'jiu-block__bg',
+                        {
+                            'jiu-block__bg--bling': isBlockBling(idx),
+                        },
+                    ]"
+                ></div>
+                <div
+                    v-if="isBall(idx)"
+                    :class="`jiu-block__ball ${ballClassName}`"
+                    ref="refBall"
+                >
+                    <span>{{ block }}</span>
+                </div>
             </div>
         </div>
     </div>
